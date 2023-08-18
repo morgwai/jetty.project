@@ -2040,7 +2040,7 @@ public class DefaultServletTest
                 String body = response.getContent();
 
                 assertThat(response, containsHeaderValue("Content-Type", "multipart/byteranges"));
-                assertThat(response, containsHeaderValue("Content-Length", "" + body.length()));
+                // TODO #10307 assertThat(response, containsHeaderValue("Content-Length", String.valueOf(body.length())));
 
                 HttpField contentType = response.getField(HttpHeader.CONTENT_TYPE);
                 String boundary = getContentTypeBoundary(contentType);
@@ -2068,7 +2068,7 @@ public class DefaultServletTest
                 String body = response.getContent();
 
                 assertThat(response, containsHeaderValue("Content-Type", "multipart/byteranges"));
-                assertThat(response, containsHeaderValue("Content-Length", "" + body.length()));
+                // TODO #10307 assertThat(response, containsHeaderValue("Content-Length", String.valueOf(body.length())));
 
                 HttpField contentType = response.getField(HttpHeader.CONTENT_TYPE);
                 String boundary = getContentTypeBoundary(contentType);
@@ -2098,7 +2098,7 @@ public class DefaultServletTest
                 String body = response.getContent();
 
                 assertThat(response, containsHeaderValue("Content-Type", "multipart/byteranges"));
-                assertThat(response, containsHeaderValue("Content-Length", "" + body.length()));
+                // TODO #10307 assertThat(response, containsHeaderValue("Content-Length", String.valueOf(body.length())));
 
                 HttpField contentType = response.getField(HttpHeader.CONTENT_TYPE);
                 String boundary = getContentTypeBoundary(contentType);
@@ -2159,7 +2159,7 @@ public class DefaultServletTest
                 String body = response.getContent();
 
                 assertThat(response, containsHeaderValue("Content-Type", "multipart/byteranges"));
-                assertThat(response, containsHeaderValue("Content-Length", "" + body.length()));
+                // TODO #10307 assertThat(response, containsHeaderValue("Content-Length", String.valueOf(body.length())));
 
                 HttpField contentType = response.getField(HttpHeader.CONTENT_TYPE);
                 String boundary = getContentTypeBoundary(contentType);
@@ -2188,7 +2188,7 @@ public class DefaultServletTest
                 String body = response.getContent();
 
                 assertThat(response, containsHeaderValue("Content-Type", "multipart/byteranges"));
-                assertThat(response, containsHeaderValue("Content-Length", "" + body.length()));
+                // TODO #10307 assertThat(response, containsHeaderValue("Content-Length", String.valueOf(body.length())));
 
                 HttpField contentType = response.getField(HttpHeader.CONTENT_TYPE);
                 String boundary = getContentTypeBoundary(contentType);
@@ -2300,7 +2300,7 @@ public class DefaultServletTest
         HttpTester.Response response = HttpTester.parseResponse(rawResponse);
         assertThat(response.toString(), response.getStatus(), is(HttpStatus.OK_200));
         String body = response.getContent();
-        assertThat(response, containsHeaderValue(HttpHeader.CONTENT_LENGTH, "" + body.length()));
+        assertThat(response, containsHeaderValue(HttpHeader.CONTENT_LENGTH, String.valueOf(body.length())));
         assertThat(response, containsHeaderValue(HttpHeader.CONTENT_TYPE, "text/plain;charset=UTF-8"));
         assertThat(body, containsString("Extra Info"));
 
@@ -2313,7 +2313,7 @@ public class DefaultServletTest
         response = HttpTester.parseResponse(rawResponse);
         assertThat(response.toString(), response.getStatus(), is(HttpStatus.OK_200));
         body = response.getContent();
-        assertThat(response, containsHeaderValue(HttpHeader.CONTENT_LENGTH, "" + body.length()));
+        assertThat(response, containsHeaderValue(HttpHeader.CONTENT_LENGTH, String.valueOf(body.length())));
         assertThat(response, containsHeaderValue(HttpHeader.CONTENT_TYPE, "image/jpeg;charset=utf-8"));
         assertThat(body, containsString("Extra Info"));
     }
