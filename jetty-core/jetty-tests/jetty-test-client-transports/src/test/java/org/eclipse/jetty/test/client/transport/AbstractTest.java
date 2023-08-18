@@ -116,9 +116,9 @@ public class AbstractTest
         try
         {
             if (serverBufferPool != null)
-                assertThat("Server Leaks: " + serverBufferPool.getLeaks(), serverBufferPool.getLeaks().size(), Matchers.is(0));
+                assertThat("Server Leaks: " + serverBufferPool.dumpLeaks(), serverBufferPool.getLeaks().size(), Matchers.is(0));
             if (clientBufferPool != null)
-                assertThat("Client Leaks: " + clientBufferPool.getLeaks(), clientBufferPool.getLeaks().size(), Matchers.is(0));
+                assertThat("Client Leaks: " + clientBufferPool.dumpLeaks(), clientBufferPool.getLeaks().size(), Matchers.is(0));
         }
         finally
         {

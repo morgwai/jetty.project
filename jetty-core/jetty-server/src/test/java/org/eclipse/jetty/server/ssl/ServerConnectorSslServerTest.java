@@ -111,7 +111,7 @@ public class ServerConnectorSslServerTest extends HttpServerTestBase
     public void dispose() throws Exception
     {
         ArrayByteBufferPool.Tracking byteBufferPool = (ArrayByteBufferPool.Tracking)_server.getConnectors()[0].getByteBufferPool();
-        assertThat("Server Leaks: " + byteBufferPool.getLeaks(), byteBufferPool.getLeaks().size(), Matchers.is(0));
+        assertThat("Server Leaks: " + byteBufferPool.dumpLeaks(), byteBufferPool.getLeaks().size(), Matchers.is(0));
     }
 
     @Override

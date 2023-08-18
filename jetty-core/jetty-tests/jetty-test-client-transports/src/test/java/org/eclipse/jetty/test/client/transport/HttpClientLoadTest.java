@@ -85,7 +85,7 @@ public class HttpClientLoadTest extends AbstractTest
             run(transport, iterations);
         }
 
-        assertThat("Leaks: " + byteBufferPool.getLeaks(), byteBufferPool.getLeaks().size(), Matchers.is(0));
+        assertThat("Leaks: " + byteBufferPool.dumpLeaks(), byteBufferPool.getLeaks().size(), Matchers.is(0));
     }
 
     @ParameterizedTest

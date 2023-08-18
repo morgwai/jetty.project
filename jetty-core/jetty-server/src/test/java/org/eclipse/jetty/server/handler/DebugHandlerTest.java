@@ -131,7 +131,7 @@ public class DebugHandlerTest
         ArrayByteBufferPool.Tracking byteBufferPool = (ArrayByteBufferPool.Tracking)server.getConnectors()[0].getByteBufferPool();
         try
         {
-            assertThat("Server Leaks: " + byteBufferPool.getLeaks(), byteBufferPool.getLeaks().size(), Matchers.is(0));
+            assertThat("Server Leaks: " + byteBufferPool.dumpLeaks(), byteBufferPool.getLeaks().size(), Matchers.is(0));
         }
         finally
         {
