@@ -58,7 +58,13 @@ public class JsrHandshakeRequest implements HandshakeRequest
         return httpServletRequest.getSession(false);
     }
 
-    @Override
+    //@Override
+    public Object getServletContext()
+    {
+        return httpServletRequest.getServletContext();
+    }
+
+     @Override
     public Map<String, List<String>> getParameterMap()
     {
         if (parameterMap == null)
